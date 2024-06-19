@@ -1,0 +1,45 @@
+from collections import deque
+class MyStack(object):
+
+    def __init__(self):
+        self.queue = deque()
+
+    def push(self, x):
+        """
+        :type x: int
+        :rtype: None
+        """
+        self.queue.append(x)
+        print(self.queue)
+
+    def pop(self):
+        """
+        :rtype: int
+        """
+        queueTwo = deque()
+        while len(self.queue) > 1:
+            queueTwo.append(self.queue.popleft())
+        val = self.queue.popleft()
+        self.queue = queueTwo
+        return val
+
+        
+
+    def top(self):
+        """
+        :rtype: int
+        """
+        queueTwo = deque()
+        while len(self.queue) > 1:
+            queueTwo.append(self.queue.popleft())
+        val = self.queue.popleft()
+        queueTwo.append(val)
+        self.queue = queueTwo
+        return val
+        
+
+    def empty(self):
+        """
+        :rtype: bool
+        """
+        return len(self.queue) == 0
