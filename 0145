@@ -1,0 +1,16 @@
+class Solution(object):
+    def postorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        newList = []
+        def postHelper(root):
+            if root is None:
+                return
+            else:
+                postHelper(root.left)
+                postHelper(root.right)
+                newList.append(root.val)
+        postHelper(root)
+        return newList
