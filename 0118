@@ -1,0 +1,13 @@
+class Solution(object):
+    def generate(self, numRows):
+        # 2D list with numrows size
+        result=[[]]*numRows
+        for i in range(0,numRows):
+            l=[]
+            for j in range(i+1):
+                if j==0 or j==i:
+                    l.append(1)
+                else:
+                    l.append(sum(result[i-1][j-1:j+1]))
+            result[i]=l
+        return result
