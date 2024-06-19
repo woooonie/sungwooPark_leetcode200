@@ -1,0 +1,19 @@
+class Solution(object):
+    def preorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        ans = []
+        if root is None:
+            return []
+        
+        self.find_preorder( root, ans)
+        return ans
+        
+    def find_preorder(self, node, ans):
+        if node is None:
+            return ans
+        ans.append(node.val)
+        self.find_preorder( node.left , ans)
+        self.find_preorder( node.right , ans)
