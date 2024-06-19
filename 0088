@@ -1,0 +1,32 @@
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        l = 0
+        r = 0
+        cnt = 0
+
+        copy = []
+        for i in nums1:
+            copy.append(i)
+
+        while l < m and r < n:
+            if copy[l] > nums2[r]:
+                print("r")
+                nums1[cnt] = nums2[r]
+                cnt += 1
+                r += 1
+            else:
+                print("l")
+                nums1[cnt] = copy[l]
+                cnt += 1
+                l += 1
+        print(nums1)
+
+        while r != n:
+            nums1[cnt] = nums2[r]
+            cnt+=1
+            r+=1
+
+        while l != m:
+            nums1[cnt] = copy[l]
+            cnt+=1
+            l+=1
