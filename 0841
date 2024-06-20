@@ -1,0 +1,16 @@
+class Solution(object):
+    def canVisitAllRooms(self, rooms):
+        """
+        :type rooms: List[List[int]]
+        :rtype: bool
+        """
+        visited_indexes = [False] * len(rooms)
+        queue = [0]
+        while len(queue) > 0:
+            index = queue.pop()
+            if not visited_indexes[index]:
+                visited_indexes[index] = True
+                for new_index in rooms[index]:
+                    if not visited_indexes[new_index]:
+                        queue.append(new_index)
+        return all(visited_indexes)
