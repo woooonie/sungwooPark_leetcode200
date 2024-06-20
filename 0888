@@ -1,0 +1,17 @@
+class Solution(object):
+    def fairCandySwap(self, aliceSizes, bobSizes):
+        alice = 0
+        for i in range(0, len(aliceSizes)):
+            alice += aliceSizes[i]
+        bob = 0
+        for i in range(0, len(bobSizes)):
+            bob += bobSizes[i]
+        
+        each = (alice + bob) / 2
+
+        for i in range(0, len(aliceSizes)):
+            candiesFromBob = each - (alice - aliceSizes[i])
+            if candiesFromBob not in bobSizes:
+                continue
+            else:
+                return [aliceSizes[i], candiesFromBob]
