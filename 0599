@@ -1,0 +1,21 @@
+class Solution(object):
+    def findRestaurant(self, list1, list2):
+        """
+        :type list1: List[str]
+        :type list2: List[str]
+        :rtype: List[str]
+        """
+        s = set(list1)
+        l = []
+        min_s = float('inf')
+
+        for i, v in enumerate(list2):
+            if v in s:
+                if i + list1.index(v) < min_s:
+                    l = []
+                    l.append(v)
+                    min_s = i + list1.index(v)
+                elif i + list1.index(v) == min_s:
+                    l.append(v)
+                    
+        return l
