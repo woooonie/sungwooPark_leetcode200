@@ -1,0 +1,22 @@
+class Solution(object):
+    def getMinimumDifference(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+
+        def dfs(node):
+            if not node:
+                return float("-inf"), float("inf"), float("inf")
+
+            left_max, left_min, left_min_diff = dfs(node.left)
+            right_max, right_min, right_min_diff = dfs(node.right)
+
+            min_diff = min(left_min_diff, right_min_diff, node.val - left_max, right_min - node.val)
+
+            return max(node.val, left_max, right_max), min(node.val, left_min, right_min), min_diff
+
+
+        _, _, min_diff =  dfs(root)
+
+        return min_diff
