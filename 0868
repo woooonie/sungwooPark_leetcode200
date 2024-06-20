@@ -1,0 +1,13 @@
+class Solution(object):
+    def binaryGap(self, n):
+        l = str(bin(n)[2:])
+        l2 = []
+        res = 0
+        for i in range(0,len(l)):
+            if l[i] == '1':
+                l2.append(i)
+        for i in range(0,len(l2)-1):
+            if l2[i+1]-l2[i]>res:
+                res = l2[i+1]-l2[i]
+        return res
+        
