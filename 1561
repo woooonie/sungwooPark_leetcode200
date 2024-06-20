@@ -1,0 +1,15 @@
+class Solution(object):
+    def maxCoins(self, piles):
+        """
+        :type piles: List[int]
+        :rtype: int
+        """
+
+        piles = sorted(piles)
+        sum = 0
+        j = -2
+        lenght = len(piles) // 3
+        for i in range(lenght):
+            sum += piles[j]
+            j -= 2
+        return sum
