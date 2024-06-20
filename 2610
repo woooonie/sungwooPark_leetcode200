@@ -1,0 +1,13 @@
+class Solution(object):
+    def findMatrix(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        x = []
+        while nums:
+            y = list(set(nums))
+            x.append(y)
+            for i in y:
+                nums.remove(i)
+        return x
