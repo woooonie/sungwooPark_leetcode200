@@ -1,0 +1,13 @@
+class Solution(object):
+    def detectCapitalUse(self, word):
+        """
+        :type word: str
+        :rtype: bool
+        """
+        s = word.title()
+        s2 = word.upper()
+        s3=word.lower()
+        if (word == s) or (word ==s2) or word == s3:
+            return True
+        else:
+            return False
