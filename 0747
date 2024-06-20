@@ -1,0 +1,15 @@
+class Solution(object):
+    def dominantIndex(self, nums):
+        m=max(nums)
+        n=nums.index(m)
+        nums.sort()
+        l=len(nums)
+        print(m,n,l)
+        if 2*nums[l-2]<=m:
+            return n
+        return -1
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
