@@ -1,0 +1,22 @@
+class Solution(object):
+    def decrypt(self, code, k):
+        code+=code
+        l=len(code)
+        c=[]
+        sd=[]
+        s=[]
+        if k>0:
+            for i in range(l//2):
+                # a[i]=sum(code[(i+1):(i+1+k)])
+                a=code[(i+1):(i+1+k)]
+                sd.append(sum(a))
+            return sd
+        elif k<0:
+            for i in range((l//2),l):
+                b=code[(i+k):i]
+                s.append(sum(b))
+            return s
+        else:
+            for i in range(l//2):
+                c.append(0)
+            return c
