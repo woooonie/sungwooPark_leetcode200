@@ -1,0 +1,20 @@
+class Solution(object):
+    def increasingBST(self, root):
+            if node == None:
+                return []
+            return sortinorder(node.left) + [node.val] + sortinorder(node.right)
+        
+
+        anslist = sortinorder(root)
+        curr = temp = TreeNode(anslist[0])
+        for i in range(len(anslist)):
+            if i >= 1:
+                temp.right = TreeNode(anslist[i])
+                temp = temp.right
+        return curr
+
+
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
