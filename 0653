@@ -1,0 +1,14 @@
+class Solution:
+    def findTarget(self, root, k):
+        nums = []
+        self.inorder(root, nums)
+        for i in range(len(nums)):
+            if k-nums[i] in nums[i+1:]:
+                return True
+        return False
+
+    def inorder(self, node, nums):
+        if node!=None:
+            self.inorder(node.left, nums)
+            nums.append(node.val)
+            self.inorder(node.right, nums)
