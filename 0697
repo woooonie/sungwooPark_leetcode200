@@ -1,0 +1,27 @@
+class Solution(object):
+    def findShortestSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        rep_index = {}
+        sml=len(nums)
+        freqmin=1
+
+        for i in range(len(nums)):
+            if nums[i] in rep_index:
+                rep_index[nums[i]].append(i)
+            else:
+                rep_index[nums[i]] = [i] 
+
+        
+        for v in list(rep_index.values()):
+            if freqmin<len(v):
+                print(v)
+                freqmin=len(v)
+                sml=len(nums[v[0]: v[-1]+1])
+            if freqmin==len(v):
+                sml = min(sml,len(nums[v[0]: v[-1]+1]))
+                
+                
+        return sml
