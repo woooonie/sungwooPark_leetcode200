@@ -1,0 +1,18 @@
+class Solution(object):
+    def distributeCoins(self, root):
+        self.output = 0
+        def sizeAndCoins(node):
+            if not node or node == None:
+                return [0, 0]
+            leftVect, rightVect = [0, 0], [0, 0]
+            if node.right and node.right != None:
+                rightVect = sizeAndCoins(node.right)
+            if node.left and node.left != None:
+                leftVect = sizeAndCoins(node.left)
+            newSize = 1 + rightVect[0] + leftVect[0]
+            newCoins = node.val + rightVect[1] + leftVect[1]
+            self.output += abs(newSize - newCoins)
+            return [newSize, newCoins]
+
+        fromRoot = sizeAndCoins(root)
+        return self.output  
