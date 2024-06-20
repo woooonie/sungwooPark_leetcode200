@@ -1,0 +1,19 @@
+class Solution:
+    def countBits(self, n):
+        ans = []
+        
+        for i in range(n + 1):
+            # sum is initialized as 0
+            sum_bits = 0
+            num = i
+            # while num not equals zero
+            while num != 0:
+                # we have to count 1's in binary representation of i, therefore % 2
+                sum_bits += num % 2
+                num = num // 2
+            
+            # add sum_bits to ans list
+            ans.append(sum_bits)
+        
+        # return 
+        return ans
