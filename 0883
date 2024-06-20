@@ -1,0 +1,25 @@
+class Solution(object):
+    def projectionArea(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+
+        x_c = 0
+        y_c = 0
+        z_c = 0
+
+
+        for r in grid: #get all count 
+            for v in r:
+                if v > 0:
+                    x_c += 1
+
+        for r in grid: #get max of rows
+            y_c += max(r)
+
+        for r in zip(*grid):
+            z_c += max(r)
+        
+
+        return x_c + y_c + z_c
