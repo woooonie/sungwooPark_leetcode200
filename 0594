@@ -1,0 +1,16 @@
+class Solution(object):
+    def findLHS(self, nums):
+        count_dict = {}  # Create a dictionary to store the count of each number
+        max_length = 0
+
+        for num in nums:
+            if num in count_dict:
+                count_dict[num] += 1
+            else:
+                count_dict[num] = 1
+
+        for num in count_dict:
+            if num + 1 in count_dict:
+                max_length = max(max_length, count_dict[num] + count_dict[num + 1])
+
+        return max_length
