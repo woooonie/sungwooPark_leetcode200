@@ -1,0 +1,31 @@
+class Solution(object):
+    def guessNumber(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+
+        if n == 1:
+            return 1
+
+        p = n // 2
+        s, e = 1, n
+
+        while True:
+            g = guess(p)
+            if not g:
+                return p
+            elif g > 0:
+                s = p
+                if (s + e) // 2 != p:
+                    p = (s + e) // 2
+                else:
+                    p += 1
+            else:
+                e = p
+                if (s + e) // 2 != p:
+                    p = (s + e) // 2
+                else:
+                    p -= 1
+
+            print(p)
