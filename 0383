@@ -1,0 +1,13 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        my_dict = {}
+        for c in magazine:
+            if c in my_dict:
+                my_dict[c] += 1
+            else:
+                my_dict[c] = 1
+        for c in ransomNote:
+            if c not in my_dict or my_dict[c] == 0:
+                return False
+            my_dict[c] -= 1
+        return True
