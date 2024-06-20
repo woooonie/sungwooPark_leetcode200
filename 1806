@@ -1,0 +1,35 @@
+class Solution(object):
+    def reinitializePermutation(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        chains_lenghts = self.get_chains_length(n)
+        return self.LCM(chains_lenghts)
+    
+    def advance(self, indx, n):
+        return (indx / 2) + ((n / 2) * (indx % 2))
+
+    def get_chains_length(self, n):
+        remaining, res = set(range(n)), []
+        while len(remaining) > 0:
+            curr, cnt = remaining.pop(), 0
+            while True:
+                cnt += 1
+                curr = self.advance(curr, n)
+                if curr not in remaining:
+                    break
+                remaining.remove(curr)
+            res.append(cnt)
+        return res
+
+    def LCM(self, numbers):
+        res = 1
+        for num in numbers:
+            res = (res * num) / self.gcd(res, num)
+        return res
+    
+    def gcd(self, a, b):
+        while b:
+            a, b = b, a % b
+        return a
