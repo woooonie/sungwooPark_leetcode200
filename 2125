@@ -1,0 +1,16 @@
+class Solution(object):
+    def numberOfBeams(self, bank):
+        prev, res = 0, 0
+
+        for i in bank:
+            counter = 0
+
+            for char in i:
+                if char == '1':
+                    counter += 1
+
+            if counter > 0:
+                res += prev * counter
+                prev = counter
+
+        return res
