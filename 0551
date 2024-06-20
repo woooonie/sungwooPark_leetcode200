@@ -1,0 +1,9 @@
+class Solution(object):
+    def checkRecord(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        if (s.count('A')==1 and len(s)==1) or ('LLL' not in s and s.count('A') <2):
+            return 1
+        return 0
