@@ -1,0 +1,16 @@
+from collections import Counter
+class Solution:
+    def findMode(self, root):
+    
+        l=[]
+        def pre(root):
+            if not root:
+                return
+            l.append(root.val)
+            pre(root.left)
+            pre(root.right)
+        pre(root)
+        c = Counter(l)
+        m = max(c.values())
+        r = [k for k in c if c[k] == m]
+        return r
