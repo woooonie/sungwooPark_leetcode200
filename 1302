@@ -1,0 +1,19 @@
+class Solution(object):
+    max_depth = -1
+    count = 0
+    def deepestLeavesSum(self, root):
+        def deepest_leaves(root, depth):
+            if (root.left is None) and (root.right is None):
+                if depth > self.max_depth:
+                    self.max_depth = depth
+                    self.count = root.val
+                elif depth == self.max_depth:
+                    self.count += root.val
+                    
+            if root.left:
+                deepest_leaves(root.left, 1+depth)
+            if root.right:
+                deepest_leaves(root.right, 1+depth)
+                
+        deepest_leaves(root, 0)
+        return self.count
