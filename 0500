@@ -1,0 +1,30 @@
+class Solution(object):
+    def findWords(self, words):
+        first = "qwertyuiopQWERTYUIOP"
+        second = "asdfghjklASDFGHJKL"
+        third = "zxcvbnmZXCVBNM"
+
+        data = []
+        for word in words:
+
+            default = True
+
+            if word[0] in first:
+                for letter in word:
+                    if letter not in first:
+                        default = False
+
+            elif word[0] in second:
+                for letter in word:
+                    if letter not in second:
+                        default = False
+            
+            else:
+                for letter in word:
+                    if letter not in third:
+                        default = False
+            
+            if default:
+                data.append(word)
+        
+        return data
