@@ -1,0 +1,20 @@
+class Solution(object):
+    def DFS(self, i, j,n, m, old_clr, color, image):
+        if i < 0 or i >= n or j < 0 or j >= m or image[i][j] != old_clr:
+            return
+        image[i][j] = color
+
+        self.DFS(i-1, j, n, m, old_clr, color, image)
+        self.DFS(i+1, j, n, m, old_clr, color, image)
+        self.DFS(i, j-1, n, m, old_clr, color, image)
+        self.DFS(i, j+1, n, m, old_clr, color, image)
+         
+    def floodFill(self, image, i, j, color):
+        old_clr = image[i][j]
+        n = len(image)
+        m = len(image[0])
+        if old_clr == color:
+            return image
+
+        self.DFS(i, j,n, m, old_clr, color, image)
+        return image
