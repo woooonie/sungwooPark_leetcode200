@@ -1,0 +1,25 @@
+class Solution(object):
+    def selfDividingNumbers(self, left, right):
+        """
+        :type left: int
+        :type right: int
+        :rtype: List[int]
+        """
+        def digits(n):
+            k=n
+            while(k>0):
+                rem=k%10
+                if(rem==0):
+                    break
+                if(n%rem==0):
+                    k=k//10
+                else:
+                    break
+            return k
+        nums=[]
+        k=0
+        for i in range(left,right+1):
+            k=digits(i)
+            if(k==0):
+                nums.append(i)
+        return nums
