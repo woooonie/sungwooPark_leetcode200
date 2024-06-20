@@ -1,0 +1,11 @@
+class Solution:
+	def helper(self, root):
+		if not root: return [0,0]
+
+		l_res = self.helper(root.left)
+		r_res = self.helper(root.right)
+		#return [sum,tilt]
+		return [l_res[0]+r_res[0]+root.val, abs(l_res[0]-r_res[0])+l_res[1]+r_res[1]]
+
+	def findTilt(self, root):
+		return self.helper(root)[1]
