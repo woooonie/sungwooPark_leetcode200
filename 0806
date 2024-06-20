@@ -1,0 +1,13 @@
+class Solution(object):
+    def numberOfLines(self, widths, s):
+        k = 0
+        sum = 0
+        for i in range(len(s)):
+            p = int(ord(s[i])) - 97
+            z = widths[p]
+            if sum + z > 100:
+                sum = z
+                k += 1
+            else:
+                sum += z
+        return[k+1,sum]
