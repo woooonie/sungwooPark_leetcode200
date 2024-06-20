@@ -1,0 +1,10 @@
+class Solution(object):
+    def isMonotonic(self, nums):
+        monotonic_asc = sorted(nums)
+        monotonic_desc = sorted(nums, reverse = True)
+               
+        if monotonic_asc == nums or monotonic_desc == nums:
+            return True
+        else:
+            return False
+                
