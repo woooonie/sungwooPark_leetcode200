@@ -1,0 +1,11 @@
+class Solution(object):
+    def distributeCandies(self, candyType):
+        n = len(candyType)/2
+        types = len(set(candyType))
+
+        if types == n:
+            return types
+        elif types > n:
+            return n
+        elif types < n:
+            return types
