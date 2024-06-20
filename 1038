@@ -1,0 +1,12 @@
+class Solution(object):
+    def bstToGst(self, root):
+        currSum = [0]
+        def dfs(node):
+            if node is None:
+                return 0
+            dfs(node.right)
+            currSum[0] += node.val
+            node.val = currSum[0]
+            dfs(node.left)
+        dfs(root)      
+        return root  
