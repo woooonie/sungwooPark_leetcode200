@@ -1,0 +1,21 @@
+class Solution(object):
+    def checkArithmeticSubarrays(self, nums, l, r):
+        """
+        :type nums: List[int]
+        :type l: List[int]
+        :type r: List[int]
+        :rtype: List[bool]
+        """
+        res = []
+
+        for i in range(len(l)):
+            n = sorted(nums[l[i]:r[i] + 1])
+            j = 2
+            while j < len(n):
+                if n[j] - n[j - 1] != n[1] - n[0]:
+                    break
+                j += 1
+            res.append(j == len(n))
+
+        return res
+            
