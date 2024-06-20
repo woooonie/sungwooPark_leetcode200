@@ -1,0 +1,22 @@
+class Solution(object):
+    def judgeCircle(self, moves):
+
+        start = [0, 0]
+
+        for i in moves:
+
+            if i == 'U':
+                start[0] += 1
+            
+            elif i == 'D':
+                start[0] -= 1
+            
+            elif i == 'L':
+                start[1] += 1
+            
+            else:
+                start[1] -= 1
+        
+        return start == [0, 0]
+
+        
