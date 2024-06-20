@@ -1,0 +1,19 @@
+class Solution(object):
+    def kthSmallestPrimeFraction(self, arr, k):
+        """
+        :type arr: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        l=[]
+        s=[]
+        for i in range(len(arr)):
+            for j in range(i+1,len(arr)):
+                a=arr[i]
+                b=arr[j]
+                c=a/float(b)
+                l.append(c)
+                s.append([a,b])
+        d=dict(zip(l,s))
+        l.sort()
+        return d[l[k-1]]
