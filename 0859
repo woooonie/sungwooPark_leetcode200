@@ -1,0 +1,20 @@
+class Solution(object):
+    def buddyStrings(self, s, goal):
+        """
+        :type s: str
+        :type goal: str
+        :rtype: bool
+        """
+        if s == goal:
+            # check for repeat characters
+            return len(set(s)) < len(s)
+        if sorted(s) != sorted(goal):
+            # make sure they have the same character set
+            return False
+        
+        count = 0
+        for i in range(len(s)):
+            if s[i] != goal[i]:
+                count += 1
+        return count == 2
+        
