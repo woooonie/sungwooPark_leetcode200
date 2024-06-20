@@ -1,0 +1,9 @@
+class Solution(object):
+    def matrixBlockSum(self, mat, k):
+        m = len(mat)
+        n = len(mat[0])
+        answer = [[_ for _ in range(n)] for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                answer[i][j] = sum(sum(mat[r][max(0, j-k):min(j+k+1, n)]) for r in range(max(0, i-k), min(i+k+1, m)))
+        return answer
