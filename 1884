@@ -1,0 +1,10 @@
+class Solution(object):
+    def twoEggDrop(self, n):
+       pos =1
+       savedprevmoves =1
+       while(pos<n):
+        savedprevmoves +=1
+        pos+=savedprevmoves
+        
+       
+       return savedprevmoves
