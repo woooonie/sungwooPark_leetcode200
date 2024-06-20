@@ -1,0 +1,21 @@
+class Solution:
+    def averageOfLevels(self, root):
+        res = []
+        level = []
+        queueList = deque()
+        queueList.append(root)
+
+        while len(queueList) != 0:
+            level = list(queueList)
+
+            for i in range(len(level)):
+                queueList.popleft()
+
+                if level[i].left is not None:
+                    queueList.append(level[i].left)
+                if level[i].right is not None:
+                    queueList.append(level[i].right)
+
+                level[i] = level[i].val
+            res.append(float(sum(level))/float(len(level)))
+        return res
