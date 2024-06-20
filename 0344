@@ -1,0 +1,4 @@
+class Solution(object):
+    def reverseString(self, k):
+        k[:]=k[::-1]   
+        return k[::-1]
