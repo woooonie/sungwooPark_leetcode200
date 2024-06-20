@@ -1,0 +1,10 @@
+class Solution(object):
+    def licenseKeyFormatting(self, s, k):
+        s, res = ''.join(s.upper().split('-')), []
+        i = len(s)%k
+        if i:
+            res.append(s[:i])
+        while i+1<=len(s):
+            i += k
+            res.append(s[i-k:i])
+        return '-'.join(res)
