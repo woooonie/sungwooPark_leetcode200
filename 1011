@@ -1,0 +1,26 @@
+class Solution(object):
+    def shipWithinDays(self, weights, days):
+        """
+        :type weights: List[int]
+        :type days: int
+        :rtype: int
+        """
+        lower = max(weights)
+        upper = sum(weights)
+        def canship(capacity):
+            num_days = 1
+            curr = 0
+            for w in weights:
+                curr += w
+                if curr > capacity:
+                    num_days += 1
+                    curr = w
+            return num_days <= days
+
+        while lower < upper:
+            mid = (lower + upper) // 2
+            if canship(mid):
+                upper = mid
+            else:
+                lower = mid+1
+        return upper
