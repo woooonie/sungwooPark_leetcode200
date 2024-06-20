@@ -1,0 +1,20 @@
+class Solution(object):
+    def diameterOfBinaryTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        diameter = [0]  # Mutable list to store diameter
+        
+        def longest_path(node):
+            if not node:
+                return 0
+            left_subtree = longest_path(node.left)
+            right_subtree = longest_path(node.right)
+
+            diameter[0] = max(diameter[0], left_subtree + right_subtree)
+
+            return 1 + max(left_subtree, right_subtree)
+
+        longest_path(root)
+        return diameter[0]
