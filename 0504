@@ -1,0 +1,18 @@
+class Solution(object):
+    def convertToBase7(self, num):
+        result = ""
+        number = num
+        negative = False
+        if number < 0:
+            number = number * -1
+            negative = True
+        while number != 0 and number != -1:
+            remainder = number % 7
+            number = number // 7
+            result += str(remainder)
+            print(number)
+        if negative:
+            result += "-"
+        if result == "":
+            result = "0"
+        return result[::-1]
