@@ -1,0 +1,14 @@
+class Solution(object):
+    def bitwiseComplement(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n == 0: 
+            return 1
+
+        ans = n
+        bitLen = int(log(n, 2)) + 1 
+        for i in range(bitLen):
+            ans ^= 1 << i
+        return ans 
