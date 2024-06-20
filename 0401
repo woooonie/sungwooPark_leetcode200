@@ -1,0 +1,14 @@
+class Solution(object):
+    def readBinaryWatch(self, turnedOn):
+        
+        def count_set_bits(num):
+            b = bin(num)
+            c = b.count('1')
+            return c
+
+        valid_times = []
+        for hour in range(12):
+            for minute in range(60):
+                if count_set_bits(hour) + count_set_bits(minute) == turnedOn:
+                   valid_times.append('{}:{:02}'.format(hour, minute))
+        return valid_times   
