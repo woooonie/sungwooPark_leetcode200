@@ -1,0 +1,22 @@
+class Solution(object):
+    def helper(self, root, low, high, numbers):
+        if not root:
+            return
+       
+        if root.val <= high and root.val >= low:
+            numbers.append(root.val)
+
+        self.helper(root.left, low, high, numbers) 
+        self.helper(root.right, low, high, numbers)
+
+        return sum(numbers)
+        
+    def rangeSumBST(self, root, low, high):
+        """
+        :type root: TreeNode
+        :type low: int
+        :type high: int
+        :rtype: int
+        """
+        numbers = []
+        return self.helper(root, low, high, numbers)
