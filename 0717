@@ -1,0 +1,14 @@
+class Solution(object):
+    def isOneBitCharacter(self, bits):
+      bits=list(bits)
+      while bits != [] and set(bits) !={0}:
+        if bits[0]==0:
+          bits.pop(0)
+        elif bits[0]==1:
+          bits.pop(0)
+          bits.pop(0)
+      print(bits)
+      if bits ==[]:
+        return False
+      else:
+        return True
