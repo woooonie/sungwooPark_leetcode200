@@ -1,0 +1,21 @@
+class Solution(object):
+    def shortestCompletingWord(self, licensePlate, words):
+        """
+        :type licensePlate: str
+        :type words: List[str]
+        :rtype: str
+        """
+        arr = [ch.lower() for ch in licensePlate if ch.isalpha()]
+        ans = []
+        minVal = float('inf')
+        
+        for word in words:
+            low = word.lower()
+            if all(low.count(ch) >= arr.count(ch) for ch in arr):
+                ans.append(word)
+                if minVal > len(word):
+                    minVal = len(word)
+        
+        for word in ans:
+            if len(word) == minVal:
+                return word
