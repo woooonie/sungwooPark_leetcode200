@@ -1,0 +1,17 @@
+class Solution(object):
+    def diStringMatch(self, s):
+        list=[]
+        length=len(s)
+        start=0
+        for i in s:
+            if i=='I':
+                list.append(start)
+                start=start+1
+            elif i=='D':
+                list.append(length)
+                length=length-1
+        if s[-1]=='I':
+            list.append(start)
+        else:
+            list.append(length)
+        return list          
