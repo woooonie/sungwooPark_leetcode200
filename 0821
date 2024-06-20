@@ -1,0 +1,19 @@
+class Solution:
+    def shortestToChar(self, S, C):
+        res, d = [10001]*len(S), 10001
+
+        for i in range(len(S)):
+            if S[i] == C:
+                d = 0
+
+            res[i] = d
+            d += 1
+
+        for i in range(len(S)-1,-1,-1):
+            if S[i] == C:
+                d = 0
+
+            res[i] = min(res[i],d)
+            d += 1
+
+        return res
